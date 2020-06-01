@@ -5,12 +5,22 @@
     <a href="#" class="Escondido " style="margin-right: 1000px;">yes</a>
     <div class="col-lg-2"></div>
     <div class="col-lg-8 mt-3 mr-5" >
-      <h1 class="text-center" style="margin-left: 80px;">Agenda</h1>
-      <p class="text-center lead" style="margin-left: 80px;" >Seus contatos estão abaixo</p>
+      <h1 class="text-center" style="margin-left: 80px;">Lista de Contatos</h1>
+      <p class="text-center lead" style="margin-left: 80px;" >Os primeiros 5 contatos de cada sessão serão listados abaixo:</p>
       <%- include('includes/messages') %>
     <div class="responsive-table mr-5">
-      
-      <table class="table my-3"  >
+      <table class="table my-3 shadow p-3 mb-5 bg-white border rounded"  style="width: 875px;">
+        <% if(contatos.length == 0){ %>
+          <h3 style="text-align: center; margin-left: 100px; margin-top: 100px;">Nenhum contato encontrado</h3>
+          <% } %>
+          <% if(contatos.length > 0){ %>
+          <tr>
+            <td><strong>Nome</strong></td>
+            <td><strong>Sobrenome</strong></td>
+            <td><strong>E-mail</strong></td>
+            <td><strong>Telefone</strong></td>
+          </tr>
+          <% } %>
         <% contatos.forEach(contato => { %>
         <tr>
           <td ><%= contato.nome %></td>
@@ -21,8 +31,16 @@
           <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Deletar</a></td>
         </tr>
         <% }) %>
+        <nav aria-label="Page navigation example">
       </table>
-    </div>
+      <ul class="pagination">
+        <% for(var i = 1; i <= comprimento + 1 ; i++) {%>
+        <li class="page-item"><a class="page-link" href="<%=i%>"><%=i%></a></li>
+        <% } %>
+      </ul>
+    </nav>
+
+  </div>
   </div>
 
 

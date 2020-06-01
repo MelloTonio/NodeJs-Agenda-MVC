@@ -1,5 +1,6 @@
 const Contato = require('../models/ContatoModel')
 
+
 exports.index = function(req,res){
     res.render('contato',{
         contato:{}

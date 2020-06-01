@@ -1,4 +1,16 @@
-<%- include('includes/head') %>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link  href="../../../frontend/assets/css/style.css">
+    <title>Hello, world!</title>
+  </head>
+  <body style="background-color: rgba(100, 148, 237, 0.247);">
 <%- include('includes/nav') %>
 <div class="container">
   <div class="row">
@@ -6,9 +18,9 @@
     <div class="col-lg-8 mt-3">
       <h1 class="text-center">Contato</h1>
       <% if(contato._id) { %>
-      <p class="text-center lead">Edite seu contato</p>
+      <p class="text-center lead"><i><small>Edite um contato</small></i></p>
       <% }else{ %> 
-        <p class="text-center lead">Crie seu contato</p>
+       <p class="text-center lead"><i> <small>- Crie um contato -</small></i></p>
         <% } %>
       <%- include('includes/messages') %>
 
@@ -18,28 +30,29 @@
         <form action="/contato/register" method="POST">
         <% } %>
         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Nome</label>
+        <div class="shadow p-3 mb-5 bg-light">
+        <div class="form-group ">
+          <label for="exampleInputEmail1"><strong>Nome</strong></label>
           <input type="text" value="<%= contato.nome %>"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nome">
         </div>
-        <div class="form-group">
-            <label for="exampleInputEmail1">Sobrenome</label>
+        <div class="form-group ">
+            <label for="exampleInputEmail1"><strong>Sobrenome</strong></label>
             <input type="text" value="<%= contato.sobrenome %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="sobrenome">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">E-mail</label>
+            <label for="exampleInputEmail1"><strong>E-mail</strong></label>
             <input type="text" value="<%= contato.email %>"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Telefone</label>
+            <label for="exampleInputEmail1"><strong>Telefone</strong></label>
             <input type="text" value="<%= contato.telefone %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="telefone">
           </div>
-
-        <% if(contato._id){ %>
-        <button type="submit" class="btn btn-primary">Editar</button>
-        <% }else{ %>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        <% } %>
+          <% if(contato._id){ %>
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <% }else{ %>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <% } %>
+        </div>
     </form>
 
 
