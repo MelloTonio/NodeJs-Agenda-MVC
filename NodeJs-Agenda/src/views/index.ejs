@@ -15,20 +15,22 @@
           <% } %>
           <% if(contatos.length > 0){ %>
           <tr>
-            <td><strong>Nome</strong></td>
-            <td><strong>Sobrenome</strong></td>
-            <td><strong>E-mail</strong></td>
-            <td><strong>Telefone</strong></td>
+            <td bgcolor= "#333333" style="color: white;"><strong>Nome</strong></td>
+            <td bgcolor= "#333333" style="color: white;"><strong>Sobrenome</strong></td>
+            <td bgcolor= "#333333" style="color: white;"><strong>E-mail</strong></td>
+            <td bgcolor= "#333333" style="color: white;"><strong>Telefone</strong></td>
+            <td bgcolor= "#333333"></td>
+            <td bgcolor= "#333333"></td>
           </tr>
           <% } %>
         <% contatos.forEach(contato => { %>
         <tr>
           <td ><%= contato.nome %></td>
-          <td><%= contato.sobrenome %></td>
-          <td><%= contato.email %></td>
-          <td><%= contato.telefone %></td>
-          <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
-          <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Deletar</a></td>
+          <td ><%= contato.sobrenome %></td>
+          <td ><%= contato.email %></td>
+          <td ><%= contato.telefone %></td>
+          <td ><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+          <td ><a class="text-danger" href="/contato/delete/<%= contato._id %>">Deletar</a></td>
         </tr>
         <% }) %>
         <nav aria-label="Page navigation example">
